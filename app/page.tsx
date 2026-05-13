@@ -9,11 +9,7 @@ import type {
   ScopeAnswers,
   ScoringResult,
 } from "@/lib/types";
-import {
-  FierceLogo,
-  GlowBackdrop,
-  ProgressBar,
-} from "@/components/BrandFrame";
+import { FierceLogo, ProgressBar } from "@/components/BrandFrame";
 import { IntroStage } from "@/components/IntroStage";
 import { ContextStage } from "@/components/ContextStage";
 import { QuestionStage } from "@/components/QuestionStage";
@@ -79,7 +75,6 @@ export default function Home() {
 
   return (
     <main className="relative min-h-screen overflow-x-hidden">
-      <GlowBackdrop />
       <div className="relative z-10">
         <header className="px-6 md:px-10 pt-6 pb-2 flex items-center justify-between max-w-5xl mx-auto">
           <FierceLogo />

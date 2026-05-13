@@ -109,14 +109,12 @@ html, body {
   background: rgba(255, 246, 238, 0.06);
 }
 
-/* Animated gradient underline for headings */
+/* Gradient text — matches the button gradient exactly (.bg-fierce-gradient) */
 .headline-accent {
-  background: linear-gradient(90deg, #C25A1B 0%, #E67730 50%, #F39556 100%);
-  background-size: 200% 100%;
+  background-image: linear-gradient(135deg, #C25A1B 0%, #E67730 50%, #F39556 100%);
   -webkit-background-clip: text;
   background-clip: text;
   color: transparent;
-  animation: shimmer 6s linear infinite;
 }
 
 /* Stage transition wrapper */
