@@ -79,8 +79,8 @@ export function QuestionStage({
             value={textValue}
             onChange={(e) => setTextValue(e.target.value)}
             rows={5}
-            className="fierce-input w-full px-5 py-4 rounded-xl text-fierce-cream text-base leading-relaxed resize-none"
-            placeholder="Be honest. The more specific, the better the recommendation."
+            className="fierce-input card-glow w-full px-5 py-4 rounded-xl text-fierce-cream text-base leading-relaxed resize-none"
+            placeholder="What's the one that's been sitting with you?"
           />
         )}
 
@@ -90,7 +90,7 @@ export function QuestionStage({
               <button
                 key={choice.id}
                 onClick={() => setSingleChoice(choice.id)}
-                className={`chip text-left px-5 py-4 rounded-xl text-base text-fierce-cream leading-relaxed ${
+                className={`chip card-glow text-left px-5 py-4 rounded-xl text-base text-fierce-cream leading-relaxed ${
                   singleChoice === choice.id ? "selected" : ""
                 }`}
               >
@@ -120,7 +120,7 @@ export function QuestionStage({
                   <button
                     key={choice.id}
                     onClick={() => toggleMulti(choice.id)}
-                    className={`chip relative text-left px-5 py-4 rounded-xl text-base text-fierce-cream leading-relaxed ${
+                    className={`chip card-glow relative text-left px-5 py-4 rounded-xl text-base text-fierce-cream leading-relaxed ${
                       selected ? "selected" : ""
                     }`}
                   >

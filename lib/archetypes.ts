@@ -88,7 +88,7 @@ export const QUESTIONS: Question[] = [
   {
     id: "where_stuck",
     prompt: "Where does your team get stuck?",
-    helper: "Pick up to 3 — start with the biggest. The more honest, the sharper the conversation with your account manager.",
+    helper: "Pick up to 3 — start with the biggest. The more honest, the sharper the conversation when we follow up.",
     type: "chips_multi",
     maxSelections: 3,
     choices: [

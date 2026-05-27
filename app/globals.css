@@ -130,3 +130,31 @@ html, body {
   background: linear-gradient(90deg, #C25A1B 0%, #E67730 50%, #F39556 100%);
   transition: width 0.4s cubic-bezier(0.22, 1, 0.36, 1);
 }
+
+/* Gradient orange outline for cards — subtle "edge lighting" effect */
+.card-glow {
+  position: relative;
+  background: rgba(10, 10, 10, 0.6);
+  border-radius: 0.75rem;
+}
+.card-glow::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  padding: 1px;
+  border-radius: inherit;
+  background: linear-gradient(135deg, #F15A22 0%, #E8571A 50%, #eb7525 100%);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* Stronger glow for featured callout box */
+.card-glow-strong::before {
+  opacity: 0.8;
+  padding: 1.5px;
+}

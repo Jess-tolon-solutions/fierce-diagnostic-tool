@@ -1,6 +1,5 @@
 import { NextResponse } from "next/server";
 import { MODULES, QUESTIONS } from "@/lib/archetypes";
-import { submitToHubSpot } from "@/lib/hubspot";
 import type { FullSubmission } from "@/lib/types";
 
 export const runtime = "nodejs";
@@ -33,40 +32,35 @@ export async function POST(req: Request) {
   console.log(briefing);
   console.log("\n==================================================\n");
 
-  // HubSpot is the system of record. If configured and fails, fail the
-  // submission so the prospect retries — losing a lead silently is worse
-  // than asking them to click "Try again."
-  const hubspotResult = await submitToHubSpot(body);
-  if (hubspotResult.configured) {
-    if (hubspotResult.ok) {
-      console.log("✓ Submitted to HubSpot");
-    } else {
-      console.error("✗ HubSpot submission failed:", hubspotResult.error);
+  // Send to Zapier webhook (creates HubSpot contact + emails brief to team)
+  const webhookUrl = process.env.ZAPIER_WEBHOOK_URL;
+  if (webhookUrl) {
+    try {
+      const res = await fetch(webhookUrl, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          briefing,
+          ...body,
+        }),
+      });
+      if (!res.ok) {
+        console.error("Zapier webhook failed:", res.status);
+        return NextResponse.json(
+          { ok: false, error: "Submission failed — please try again" },
+          { status: 500 }
+        );
+      }
+      console.log("✓ Sent to Zapier");
+    } catch (err) {
+      console.error("Zapier webhook error:", err);
       return NextResponse.json(
         { ok: false, error: "Submission failed — please try again" },
         { status: 500 }
       );
     }
   } else {
-    console.log("⚠ HubSpot not configured (HUBSPOT_PORTAL_ID + HUBSPOT_FORM_GUID env vars unset) — logged locally only");
-  }
-
-  // Optional secondary notification (Slack / custom webhook). Best-effort —
-  // does not block or fail the submission.
-  const webhookUrl = process.env.SUBMISSION_WEBHOOK_URL;
-  if (webhookUrl) {
-    try {
-      await fetch(webhookUrl, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          text: briefing,
-          submission: body,
-        }),
-      });
-    } catch (err) {
-      console.error("Webhook delivery failed:", err);
-    }
+    console.log("⚠ ZAPIER_WEBHOOK_URL not set — logged locally only");
   }
 
   return NextResponse.json({ ok: true });

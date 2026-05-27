@@ -57,28 +57,27 @@ export function ConfirmationStage({
       </h2>
 
       <p className="text-fierce-cream/75 text-base md:text-lg leading-relaxed mb-10">
-        One of our account managers will reach out within{" "}
+        We&apos;ll reach out within{" "}
         <span className="text-fierce-cream font-semibold">24 hours</span> to
-        walk through the modules we recommend and plan your{" "}
-        <span className="text-fierce-cream font-semibold">in-person workshop</span>.
-        Our facilitator comes to you.
+        walk through the modules we recommend and plan the logistics. When the session happens,{" "}
+        <span className="text-fierce-cream font-semibold">Regent comes to you</span>.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
         <NextStep
           number="01"
-          title="Account manager review"
-          body="A Fierce account manager reviews your answers and identifies the modules that best fit your team."
+          title="Module review"
+          body="We review your answers and identify the modules that best fit what your team is navigating."
         />
         <NextStep
           number="02"
           title="Planning call"
-          body="They reach out within 24 hours to schedule a brief call to discuss the recommendation, scope, and logistics."
+          body="We reach out within 24 hours to scope the session — timing, logistics, who's in the room, and how we can make the 40 minutes count."
         />
         <NextStep
           number="03"
-          title="Workshop on-site"
-          body="Your master facilitator comes to your office and delivers the 45-minute session for your team."
+          title="Regent comes to you"
+          body="Master Facilitator Regent Cornell arrives on-site to run the session with your team. 40 minutes, in the room, no slides."
         />
       </div>
 
@@ -100,7 +99,7 @@ function NextStep({
   body: string;
 }) {
   return (
-    <div className="border border-fierce-cream/10 rounded-xl p-5 bg-fierce-ink/40 backdrop-blur-sm">
+    <div className="card-glow rounded-xl p-5 bg-fierce-ink/40 backdrop-blur-sm">
       <p className="text-fierce-orange font-mono text-xs tracking-widest mb-2">
         {number}
       </p>

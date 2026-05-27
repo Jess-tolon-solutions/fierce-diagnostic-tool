@@ -43,7 +43,7 @@ export function ContextStage({
           <input
             value={name}
             onChange={(e) => setName(e.target.value)}
-            className="fierce-input w-full px-4 py-3 rounded-lg text-fierce-cream"
+            className="fierce-input card-glow w-full px-4 py-3 rounded-lg text-fierce-cream"
             placeholder="Jess Tolon"
           />
         </Field>
@@ -52,7 +52,7 @@ export function ContextStage({
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             type="email"
-            className="fierce-input w-full px-4 py-3 rounded-lg text-fierce-cream"
+            className="fierce-input card-glow w-full px-4 py-3 rounded-lg text-fierce-cream"
             placeholder="you@company.com"
           />
         </Field>
@@ -60,7 +60,7 @@ export function ContextStage({
           <input
             value={company}
             onChange={(e) => setCompany(e.target.value)}
-            className="fierce-input w-full px-4 py-3 rounded-lg text-fierce-cream"
+            className="fierce-input card-glow w-full px-4 py-3 rounded-lg text-fierce-cream"
             placeholder="Acme Industries"
           />
         </Field>
@@ -68,7 +68,7 @@ export function ContextStage({
           <input
             value={role}
             onChange={(e) => setRole(e.target.value)}
-            className="fierce-input w-full px-4 py-3 rounded-lg text-fierce-cream"
+            className="fierce-input card-glow w-full px-4 py-3 rounded-lg text-fierce-cream"
             placeholder="VP of L&D"
           />
         </Field>
@@ -80,7 +80,7 @@ export function ContextStage({
                   key={size}
                   type="button"
                   onClick={() => setTeamSize(size)}
-                  className={`chip text-sm py-2.5 px-3 rounded-lg text-left ${
+                  className={`chip card-glow text-sm py-2.5 px-3 rounded-lg text-left ${
                     teamSize === size ? "selected" : ""
                   }`}
                 >

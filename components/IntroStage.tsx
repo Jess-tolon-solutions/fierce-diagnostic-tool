@@ -14,9 +14,7 @@ export function IntroStage({ onStart }: { onStart: () => void }) {
       </h1>
 
       <p className="text-fierce-cream/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-        Three questions. Two minutes. The point isn&apos;t to qualify you —
-        it&apos;s to make sure the 45 minutes our master facilitator spends
-        with your team is the 45 minutes that actually moves the needle.
+        The next few questions shape the session Regent builds for your team.
       </p>
 
       <div className="pt-4 flex flex-col items-center gap-3">
@@ -45,7 +43,7 @@ export function IntroStage({ onStart }: { onStart: () => void }) {
         <Pillar
           number="03"
           title="Actionable"
-          body="Within 24 hours, an account manager reviews your answers and reaches out to plan your in-person workshop."
+          body="Within 24 hours, we review your answers and reach out to plan your in-person workshop."
         />
       </div>
     </div>
@@ -62,7 +60,7 @@ function Pillar({
   body: string;
 }) {
   return (
-    <div className="border border-fierce-cream/10 rounded-xl p-5 bg-fierce-ink/40 backdrop-blur-sm">
+    <div className="card-glow rounded-xl p-5 bg-fierce-ink/40 backdrop-blur-sm">
       <p className="text-fierce-orange font-mono text-xs tracking-widest mb-2">
         {number}
       </p>
