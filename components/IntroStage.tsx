@@ -8,13 +8,13 @@ export function IntroStage({ onStart }: { onStart: () => void }) {
       </p>
 
       <h1 className="text-5xl md:text-7xl font-black tracking-tight leading-[0.95]">
-        Before we build your team a workshop,
+        Before we recommend anything,
         <br />
         <span className="headline-accent">let&apos;s be honest.</span>
       </h1>
 
       <p className="text-fierce-cream/70 text-lg md:text-xl max-w-2xl mx-auto leading-relaxed">
-        The next few questions shape the session Regent builds for your team.
+        The next few questions shape what we recommend for your team.
       </p>
 
       <div className="pt-4 flex flex-col items-center gap-3">
@@ -25,7 +25,7 @@ export function IntroStage({ onStart }: { onStart: () => void }) {
           Start the conversation →
         </button>
         <p className="text-fierce-cream/40 text-xs">
-          Your answers stay between you and your facilitator.
+          Your answers stay between you and our team.
         </p>
       </div>
 
@@ -43,7 +43,7 @@ export function IntroStage({ onStart }: { onStart: () => void }) {
         <Pillar
           number="03"
           title="Actionable"
-          body="Within 24 hours, we review your answers and reach out to plan your in-person workshop."
+          body="Within 24 hours, we review your answers and reach out with our recommendation."
         />
       </div>
     </div>

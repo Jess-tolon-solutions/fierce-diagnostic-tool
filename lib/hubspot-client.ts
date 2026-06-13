@@ -154,7 +154,7 @@ function formatBriefing(
     lines.push("");
   }
   lines.push("LOGISTICS");
-  lines.push(`  Format:  On-site (in-person)`);
+  lines.push(`  Format:  ${scope.format || "—"}`);
   lines.push(`  When:    ${scope.preferredWindow}`);
   if (scope.notes) lines.push(`  Notes:   ${scope.notes}`);
   return lines.join("\n");

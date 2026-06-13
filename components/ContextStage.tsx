@@ -34,8 +34,7 @@ export function ContextStage({
         Before we dig in — who are you and who&apos;s your team?
       </h2>
       <p className="text-fierce-cream/60 text-base md:text-lg mt-6 mb-10">
-        Takes 20 seconds. We use this to tailor your recommendation and the
-        workshop scope.
+        Takes 20 seconds. We use this to tailor what we recommend.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
@@ -72,7 +71,7 @@ export function ContextStage({
             placeholder="VP of L&D"
           />
         </Field>
-        <Field label="Team size for the workshop" className="md:col-span-2">
+        <Field label="Team size" className="md:col-span-2">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-2">
             {["1–10", "11–25", "26–50", "51–100", "101–250", "250+", "Whole org", "Not sure yet"].map(
               (size) => (

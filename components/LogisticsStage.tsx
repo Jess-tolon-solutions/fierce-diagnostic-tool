@@ -3,6 +3,24 @@
 import { useState } from "react";
 import type { ScopeAnswers } from "@/lib/types";
 
+const FORMAT_OPTIONS = [
+  {
+    value: "In-person",
+    title: "In-person",
+    body: "On-site, at your location.",
+  },
+  {
+    value: "Virtual",
+    title: "Virtual",
+    body: "Live and facilitated online. Same depth, delivered remotely.",
+  },
+  {
+    value: "Not sure yet",
+    title: "Not sure yet",
+    body: "Help us recommend the right format based on your situation.",
+  },
+] as const;
+
 export function LogisticsStage({
   initialScope,
   onSubmit,
@@ -12,12 +30,13 @@ export function LogisticsStage({
   onSubmit: (scope: ScopeAnswers) => void;
   onBack: () => void;
 }) {
+  const [format, setFormat] = useState<string>(initialScope?.format ?? "");
   const [window, setWindow] = useState<string>(
     initialScope?.preferredWindow ?? ""
   );
   const [notes, setNotes] = useState<string>(initialScope?.notes ?? "");
 
-  const valid = window.length > 0;
+  const valid = format.length > 0 && window.length > 0;
 
   return (
     <div className="stage-enter max-w-2xl mx-auto pt-8 pb-12">
@@ -30,28 +49,36 @@ export function LogisticsStage({
       </h2>
 
       <p className="text-fierce-cream/60 text-base md:text-lg mt-6 leading-relaxed">
-        We&apos;ve got what we need to recommend the right module. These last
-        details help us scope the session so Regent can come in ready to work — not stuck on logistics.
+        We&apos;ve got what we need to make a recommendation. A couple more
+        details help us land on the right format and timing for your team.
       </p>
 
       <div className="mt-10 space-y-8">
-        {/* In-person reinforcement — replaces the old format-choice chips */}
-        <div className="card-glow card-glow-strong rounded-2xl bg-gradient-to-br from-fierce-orange/[0.06] to-fierce-orange-deep/[0.03] p-5 md:p-6">
-          <div className="flex items-start gap-4">
-            <div className="shrink-0 mt-0.5">
-              <span className="inline-flex items-center justify-center w-9 h-9 rounded-full bg-fierce-gradient text-fierce-black font-black">
-                ✓
-              </span>
-            </div>
-            <div>
-              <p className="font-bold text-fierce-cream text-base md:text-lg leading-tight">
-                We come to you.
-              </p>
-              <p className="text-sm md:text-base text-fierce-cream/70 mt-1.5 leading-relaxed">
-                Master Facilitator Regent Cornell runs the 40-minute session on-site, in
-                your space. No travel for your team, no Zoom fatigue.
-              </p>
-            </div>
+        <div>
+          <p className="text-xs font-bold tracking-widest text-fierce-cream/50 uppercase mb-3">
+            How would you want to run it?
+          </p>
+          <div className="grid grid-cols-1 gap-3">
+            {FORMAT_OPTIONS.map((opt) => {
+              const selected = format === opt.value;
+              return (
+                <button
+                  key={opt.value}
+                  type="button"
+                  onClick={() => setFormat(opt.value)}
+                  className={`chip card-glow text-left px-5 py-4 rounded-xl ${
+                    selected ? "selected" : ""
+                  }`}
+                >
+                  <p className="font-bold text-fierce-cream text-base leading-tight">
+                    {opt.title}
+                  </p>
+                  <p className="text-sm text-fierce-cream/70 mt-1 leading-relaxed">
+                    {opt.body}
+                  </p>
+                </button>
+              );
+            })}
           </div>
         </div>
 
@@ -107,6 +134,7 @@ export function LogisticsStage({
           onClick={() =>
             valid &&
             onSubmit({
+              format,
               preferredWindow: window,
               notes: notes.trim(),
             })

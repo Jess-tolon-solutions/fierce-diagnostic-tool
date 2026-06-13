@@ -57,27 +57,26 @@ export function ConfirmationStage({
       </h2>
 
       <p className="text-fierce-cream/75 text-base md:text-lg leading-relaxed mb-10">
-        We&apos;ll reach out within{" "}
+        An expert from our team will reach out within{" "}
         <span className="text-fierce-cream font-semibold">24 hours</span> to
-        walk through the modules we recommend and plan the logistics. When the session happens,{" "}
-        <span className="text-fierce-cream font-semibold">Regent comes to you</span>.
+        walk you through what we recommend for your team.
       </p>
 
       <div className="grid grid-cols-1 md:grid-cols-3 gap-4 mb-10">
         <NextStep
           number="01"
-          title="Module review"
-          body="We review your answers and identify the modules that best fit what your team is navigating."
+          title="We review your answers"
+          body="We pinpoint the conversations your team isn't having and the modules that best fit what you're navigating."
         />
         <NextStep
           number="02"
-          title="Planning call"
-          body="We reach out within 24 hours to scope the session — timing, logistics, who's in the room, and how we can make the 40 minutes count."
+          title="We reach out"
+          body="Within 24 hours, an expert from our team gets in touch with the recommendation and answers whatever's on your mind."
         />
         <NextStep
           number="03"
-          title="Regent comes to you"
-          body="Master Facilitator Regent Cornell arrives on-site to run the session with your team. 40 minutes, in the room, no slides."
+          title="You decide what's next"
+          body="Together we land on the right format and the best next step for your team — an honest conversation, not a sales pitch."
         />
       </div>
 

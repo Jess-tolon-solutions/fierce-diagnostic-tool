@@ -51,6 +51,7 @@ export interface ScoringResult {
 }
 
 export interface ScopeAnswers {
+  format: string;
   preferredWindow: string;
   notes: string;
 }
